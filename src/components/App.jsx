@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 
 import { ContactForm, ContactList, Filter } from './Contacts';
+import {
+  SectionStyled,
+  SectionBook,
+  BookTitle,
+  ContactsStyled,
+  ContactsTitle,
+} from './Contacts/Contacts-styled';
 
 export class App extends Component {
   state = {
@@ -55,30 +62,25 @@ export class App extends Component {
     const { filter } = this.state;
 
     return (
-      <div
-        style={{
-          alignItems: 'center',
-          fontSize: 40,
-          color: '#010101',
-        }}
+      <SectionStyled
       >
-        <div className={'container'}>
-          <h1>Phonebook</h1>
+        <SectionBook>
+          <BookTitle>Phonebook</BookTitle>
           <ContactForm
             onSubmit={this.addContact}
             onCheck={this.checkingContacts}
           />
-        </div>
+        </SectionBook>
 
-        <div className={'container'}>
-          <h2>Contacts</h2>
+        <ContactsStyled>
+          <ContactsTitle>Contacts</ContactsTitle>
           <Filter filter={filter} onChange={this.handleFilter} />
           <ContactList
             contacts={this.getFilteredContacts()}
             onClick={this.deleteContact}
           />
-        </div>
-      </div>
+        </ContactsStyled>
+      </SectionStyled>
     );
   }
 }

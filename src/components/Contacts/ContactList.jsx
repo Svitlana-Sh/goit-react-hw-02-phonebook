@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Contact } from 'components/Contacts/';
+import { FilterList } from './Contacts-styled';
 
 export const ContactList = ({ contacts, onClick }) => {
   return (
-    <ul>
+    <FilterList>
       {contacts.map(contact => (
         <li key={contact.id}>
           <Contact contact={contact} onClick={onClick} />
         </li>
       ))}
-    </ul>
+    </FilterList>
   );
 };
 

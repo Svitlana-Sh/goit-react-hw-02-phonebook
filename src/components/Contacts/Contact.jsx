@@ -11,7 +11,7 @@ export class Contact extends Component {
     return (
       <>
         {`${contact.name}: ${contact.number}`}{' '}
-        <buttom type="button" onClick={this.handleDeleteContact}>
+        <buttom type="buttom" onClick={this.handleDeleteContact}>
           Delete
         </buttom>
       </>

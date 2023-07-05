@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+import {
+  ContactInputForm,
+  Label,
+  Input,
+  ErrorMessageStyled,
+  FormBtn,
+} from './Contacts-styled';
 
 export class ContactForm extends Component {
   initialValues = { name: '', number: '' };
@@ -42,7 +49,6 @@ export class ContactForm extends Component {
   };
 
   render() {
-    // const { name, number } = this.state;
 
     return (
       <Formik
@@ -50,20 +56,20 @@ export class ContactForm extends Component {
         validationSchema={this.schema}
         onSubmit={this.handleSubmit}
       >
-        <div>
-          <label>
+        <ContactInputForm>
+          <Label>
             Name
-            <input type="text" name="name" />
-            <ErrorMessage name="name" />
-          </label>
-          <label>
+            <Input type="text" name="name" />
+            <ErrorMessage name="name" component={ErrorMessageStyled} />
+          </Label>
+          <Label>
             Number
-            <input type="tel" name="number" />
-            <ErrorMessage name="number"/>
-          </label>
+            <Input type="tel" name="number" placeholder='+38 xxx xxx xx'/>
+            <ErrorMessage name="number" component={ErrorMessageStyled} />
+          </Label>
 
-          <button type="submit">Add contact</button>
-        </div>
+          <FormBtn type="submit">Add contact</FormBtn>
+        </ContactInputForm>
       </Formik>
     );
   }
